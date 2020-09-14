@@ -8,8 +8,7 @@ import java.util.List;
 /**
  * The Service that works with User Model.
  */
-public interface UserService
-{
+public interface UserService {
     /**
      * Returns a list of all the Users
      *

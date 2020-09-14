@@ -13,8 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "users")
-public class User extends Auditable
-{
+public class User extends Auditable {
     /**
      * The primary key (long) of the users table.
      */
@@ -26,7 +25,7 @@ public class User extends Auditable
      * The username (String). Cannot be null and must be unique
      */
     @Column(nullable = false,
-        unique = true)
+            unique = true)
     private String username;
 
     /**
@@ -40,15 +39,14 @@ public class User extends Auditable
      * Primary email account of user. Could be used as the userid. Cannot be null and must be unique.
      */
     @Column(nullable = false,
-        unique = true)
+            unique = true)
     @Email
     private String primaryemail;
 
     /**
      * Default constructor used primarily by the JPA.
      */
-    public User()
-    {
+    public User() {
     }
 
     /**
@@ -61,10 +59,9 @@ public class User extends Auditable
      * @param primaryemail The primary email (String) of the user
      */
     public User(
-        String username,
-        String password,
-        String primaryemail)
-    {
+            String username,
+            String password,
+            String primaryemail) {
         setUsername(username);
         setPassword(password);
         this.primaryemail = primaryemail;
@@ -75,8 +72,7 @@ public class User extends Auditable
      *
      * @return the userid (long) of the user
      */
-    public long getUserid()
-    {
+    public long getUserid() {
         return userid;
     }
 
@@ -85,8 +81,7 @@ public class User extends Auditable
      *
      * @param userid the new userid (long) of the user
      */
-    public void setUserid(long userid)
-    {
+    public void setUserid(long userid) {
         this.userid = userid;
     }
 
@@ -95,13 +90,11 @@ public class User extends Auditable
      *
      * @return the username (String) lowercase
      */
-    public String getUsername()
-    {
+    public String getUsername() {
         if (username == null) // this is possible when updating a user
         {
             return null;
-        } else
-        {
+        } else {
             return username.toLowerCase();
         }
     }
@@ -111,8 +104,7 @@ public class User extends Auditable
      *
      * @param username the new username (String) converted to lowercase
      */
-    public void setUsername(String username)
-    {
+    public void setUsername(String username) {
         this.username = username.toLowerCase();
     }
 
@@ -121,13 +113,11 @@ public class User extends Auditable
      *
      * @return the primary email (String) for the user converted to lowercase
      */
-    public String getPrimaryemail()
-    {
+    public String getPrimaryemail() {
         if (primaryemail == null) // this is possible when updating a user
         {
             return null;
-        } else
-        {
+        } else {
             return primaryemail.toLowerCase();
         }
     }
@@ -137,8 +127,7 @@ public class User extends Auditable
      *
      * @param primaryemail the new primary email (String) for the user converted to lowercase
      */
-    public void setPrimaryemail(String primaryemail)
-    {
+    public void setPrimaryemail(String primaryemail) {
         this.primaryemail = primaryemail.toLowerCase();
     }
 
@@ -147,8 +136,7 @@ public class User extends Auditable
      *
      * @return the password (String) of the user
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
@@ -157,8 +145,7 @@ public class User extends Auditable
      *
      * @param password the new password (String) for the user
      */
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

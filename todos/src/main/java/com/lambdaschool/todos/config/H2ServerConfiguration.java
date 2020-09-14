@@ -15,8 +15,7 @@ import java.sql.SQLException;
  * necessary for using the database tool built into intellij
  */
 @Configuration
-public class H2ServerConfiguration
-{
+public class H2ServerConfiguration {
 
     /**
      * TCP port for remote connections, default 9092.
@@ -41,13 +40,12 @@ public class H2ServerConfiguration
     @Bean
     @ConditionalOnExpression("${h2.tcp.enabled:true}")
     public Server h2TcpServer() throws
-                                SQLException
-    {
+            SQLException {
         return Server.createTcpServer("-tcp",
-            "-tcpAllowOthers",
-            "-tcpPort",
-            h2TcpPort)
-            .start();
+                "-tcpAllowOthers",
+                "-tcpPort",
+                h2TcpPort)
+                .start();
     }
 
     /**
@@ -61,12 +59,11 @@ public class H2ServerConfiguration
     @Bean
     @ConditionalOnExpression("${h2.web.enabled:true}")
     public Server h2WebServer() throws
-                                SQLException
-    {
+            SQLException {
         return Server.createWebServer("-web",
-            "-webAllowOthers",
-            "-webPort",
-            h2WebPort)
-            .start();
+                "-webAllowOthers",
+                "-webPort",
+                h2WebPort)
+                .start();
     }
 }

@@ -10,16 +10,14 @@ import java.util.Optional;
  * For now, a default name will be used
  */
 @Component
-public class UserAuditing implements AuditorAware<String>
-{
+public class UserAuditing implements AuditorAware<String> {
     /**
      * The current user
      *
      * @return Optional(String) of current user
      */
     @Override
-    public Optional<String> getCurrentAuditor()
-    {
+    public Optional<String> getCurrentAuditor() {
         String uname;
         uname = "llama";
         return Optional.of(uname);
