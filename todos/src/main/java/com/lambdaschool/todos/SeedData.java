@@ -80,3 +80,5 @@ public class SeedData implements CommandLineRunner {
         userService.save(u5);
     }
 }
+
+//Having a seed data problem with the "getTodos" I think that I might need to rename my Todo to Todos?...
