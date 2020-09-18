@@ -21,6 +21,10 @@ public class TodoController {
     @Autowired
     TodoService todoService;
 
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
+    }
+
     /**
      * Given the todo id, mark the task as complete
      * <br>Example: <a href="http://localhost:2019/todos/todo/7">http://localhost:2019/todos/todo/7</a>
