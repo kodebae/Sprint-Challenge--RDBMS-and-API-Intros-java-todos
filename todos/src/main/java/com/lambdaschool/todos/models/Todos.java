@@ -1,12 +1,12 @@
 package com.lambdaschool.todos.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import com.lambdaschool.todos.models.Todos;
 import javax.persistence.*;
 
 @Entity // how we interact with our table
 @Table(name= "todos") // connecting to the todos
-public class Todo extends Auditable { // allow us to manipulate the data we need to update our todos
+public class Todos extends Auditable { // allow us to manipulate the data we need to update our todos
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid; // our unique id for our individual id's
@@ -17,15 +17,15 @@ public class Todo extends Auditable { // allow us to manipulate the data we need
     private boolean completed = false; // completed is default as false, cause we need it to be not completed when created
 
 
-    @ManyToOne // the opposite should be true for user, one user to many tasks becasue they can have more than one task to do
+    @ManyToOne // the opposite should be true for user, one user to many tasks because they can have more than one task to do
     @JoinColumn(name = "userid", nullable = false) //many to one user for many tasks to one user
     @JsonIgnoreProperties(value = "todos", allowSetters = true)
     private User user; // our users are private and should have login information to access the database
 
-    public Todo() { //default constructor stays empty
+    public Todos() { //default constructor stays empty
     }
 
-    public Todo(User user, String description) { // use this constructor to initialize the object of our class
+    public Todos(User user, String description) { // use this constructor to initialize the object of our class
         this.description = description;
         this.user = user;
     }
